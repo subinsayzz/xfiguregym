@@ -58,51 +58,26 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-bg-text">ZAK'S GYM</div>
-        <div class="container hero-container"
-            style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative;">
-
-            <div class="hero-content text-center">
-                <h1 class="hero-title">
-                    TRANSFORM YOUR <span class="text-red">BODY</span><br>
-                    & MIND WITH <span class="text-red">FITNESS</span>
-                </h1>
-
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn" style="display:flex; align-items:center; gap:8px;">TRY FOR FREE <i
-                            class="fas fa-arrow-right"></i></a>
-                    <a href="#training" class="btn btn-secondary"
-                        style="display:flex; align-items:center; gap:8px; border-radius:50px; background: rgba(255,255,255,0.1); border-color: transparent;"><i
-                            class="fas fa-calendar-alt"></i> SCHEDULE TIME</a>
+        <div class="container" style="max-width: 1400px; padding: 0 40px;">
+            <div class="hero-split">
+                <!-- Left: Logo -->
+                <div class="animate-on-scroll">
+                    <img src="gymmaster.png" alt="Zak's Gym Master" class="hero-logo-large">
                 </div>
-            </div>
 
-            <!-- Floating Stat Cards (Like Fittex) -->
-            <div class="floating-stats-container">
-                <div class="stat-card stat-card-left">
-                    <i class="fas fa-clock"></i>
-                    <div class="stat-meta">
-                        <span class="stat-label">Hours</span>
-                        <span class="stat-value">24/7</span>
-                    </div>
-                </div>
-                <div class="stat-card stat-card-right">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="stat-meta">
-                        <span class="stat-label">Locations</span>
-                        <span class="stat-value">2</span>
-                    </div>
-                </div>
-                <!-- Mini avatars -->
-                <div class="hero-avatars">
-                    <div class="avatar-group">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Member">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Member">
-                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Member">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Member">
-                    </div>
-                    <div class="avatar-text">
-                        <strong>1,000+</strong> Active members
+                <!-- Right: Text Content -->
+                <div class="hero-text-big animate-on-scroll" style="transition-delay: 0.2s;">
+                    <span class="hero-text-start">START</span>
+                    <span class="hero-text-training">TRAINING</span>
+                    <span class="hero-text-today">TODAY</span>
+
+                    <div style="margin-top: 50px; display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="#contact" class="btn"
+                            style="padding: 18px 45px; font-size: 1.1rem; border-radius: 50px;">JOIN THE ELITE <i
+                                class="fas fa-arrow-right"></i></a>
+                        <a href="#about" class="btn btn-secondary"
+                            style="padding: 18px 45px; font-size: 1.1rem; border-radius: 50px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;">EXPLORE
+                            MORE</a>
                     </div>
                 </div>
             </div>
@@ -2062,25 +2037,25 @@
 
         <div class="container" style="position: relative; z-index: 1;">
             <div class="footer-grid">
-                <!-- Left Info -->
-                <div style="padding-right: 20px;">
-                    <h2
-                        style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); text-transform: uppercase; margin-bottom: 20px; color: #fff; line-height: 1;">
-                        LET'S GET <br><span class="text-red">STARTED.</span>
-                    </h2>
+                <!-- Left Info: Replaced 'LET'S GET STARTED' with branding -->
+                <div style="padding-right: 40px;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                        <i class="fas fa-dumbbell"
+                            style="color: var(--primary-red); font-size: 2.5rem; transform: rotate(-45deg);"></i>
+                        <h2
+                            style="margin: 0; color: #fff; font-family: var(--font-display); font-size: 2.5rem; line-height: 1; letter-spacing: -1px;">
+                            <span class="text-red">ZAK'S</span><br>GYM MASTER
+                        </h2>
+                    </div>
                     <p
-                        style="color: var(--text-gray); font-size: 1rem; line-height: 1.6; margin-bottom: 35px; max-width: 90%;">
-                        Take the first step towards transforming your body and lifestyle. Join Chalakudy’s most premium
-                        fitness space.
+                        style="color: var(--text-gray); font-size: 1rem; line-height: 1.6; margin-bottom: 30px; max-width: 400px;">
+                        Chalakudy's premier fitness destination. Dedicated to providing elite coaching and a world-class
+                        training environment since our inception.
                     </p>
-
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-                        <div
-                            style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; width: fit-content;">
-                            <i class="fas fa-envelope" style="color: var(--primary-red); font-size: 1.2rem;"></i>
-                            <span
-                                style="font-family: var(--font-body); font-size: 1.1rem; color: #fff; font-weight: 600;">info@zaksgymmaster.com</span>
-                        </div>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" class="social-link-fittex"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link-fittex"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link-fittex"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
