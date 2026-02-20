@@ -1437,6 +1437,49 @@
                     transform: translateY(-2px);
                     box-shadow: 0 10px 20px rgba(230, 0, 0, 0.3);
                 }
+
+                /* Marquee Styles */
+                .testimonial-marquee {
+                    margin-top: 60px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    position: relative;
+                    padding: 20px 0;
+                    border-top: 1px solid rgba(255, 255, 255, 0.05);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                }
+
+                .marquee-inner {
+                    display: inline-block;
+                    animation: marquee 30s linear infinite;
+                }
+
+                .marquee-inner span {
+                    display: inline-block;
+                    font-family: var(--font-display);
+                    font-size: 2.5rem;
+                    color: transparent;
+                    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+                    text-transform: uppercase;
+                    padding-right: 50px;
+                    letter-spacing: 2px;
+                }
+
+                .marquee-inner span mark {
+                    background: none;
+                    color: var(--primary-red);
+                    -webkit-text-stroke: 0;
+                }
+
+                @keyframes marquee {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
             </style>
 
             <div class="testimonial-carousel-container animate-on-scroll" id="testimonialCarousel">
@@ -1533,6 +1576,25 @@
 
             </div>
 
+            <!-- Enhanced Scrolling Marquee -->
+            <div class="testimonial-marquee">
+                <div class="marquee-inner">
+                    <span>Real <mark>People</mark></span>
+                    <span>Real <mark>Results</mark></span>
+                    <span>Join the <mark>Family</mark></span>
+                    <span>Top-Tier <mark>Gear</mark></span>
+                    <span>Expert <mark>Guidance</mark></span>
+                    <span>24/7 <mark>Access</mark></span>
+                    <!-- Repeat for seamless loop -->
+                    <span>Real <mark>People</mark></span>
+                    <span>Real <mark>Results</mark></span>
+                    <span>Join the <mark>Family</mark></span>
+                    <span>Top-Tier <mark>Gear</mark></span>
+                    <span>Expert <mark>Guidance</mark></span>
+                    <span>24/7 <mark>Access</mark></span>
+                </div>
+            </div>
+
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     const carousel = document.getElementById('testimonialCarousel');
@@ -1549,6 +1611,27 @@
 
                         nextBtn.addEventListener('click', () => {
                             carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        });
+
+                        // Auto-scroll logic
+                        let autoScrollInterval = setInterval(() => {
+                            if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10) {
+                                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                            }
+                        }, 5000);
+
+                        // Pause on hover
+                        carousel.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+                        carousel.addEventListener('mouseleave', () => {
+                            autoScrollInterval = setInterval(() => {
+                                if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10) {
+                                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                                } else {
+                                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                                }
+                            }, 5000);
                         });
                     }
                 });
