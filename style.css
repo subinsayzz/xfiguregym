@@ -206,7 +206,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), url('/Users/subin/.gemini/antigravity/brain/4ad0be79-d0e4-45c4-ae90-5a630730af8d/gym_hero_indian_1771616473307.png') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), url('assets/gym_hero_indian_1771616473307.png') center/cover no-repeat;
     background-attachment: fixed;
     background-position: center 20%;
     /* Moved the image a bit above */
