@@ -208,7 +208,7 @@ header.scrolled {
 /* Hero Section */
 .hero {
     height: 100vh;
-    min-height: 800px;
+    min-height: 850px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -236,16 +236,37 @@ header.scrolled {
     text-transform: uppercase;
 }
 
+/* Fittex Style Watermark Outline */
+.hero-bg-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(12rem, 35vw, 40rem);
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.05);
+    /* Sharper, cleaner outline */
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+    letter-spacing: -15px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
 /* Localized Atmospheric Glows (Fittex Style) */
 .hero::before {
     content: '';
     position: absolute;
-    top: 20%;
-    left: 10%;
-    width: 40vw;
-    height: 40vw;
-    background: radial-gradient(circle, rgba(172, 255, 47, 0.08) 0%, transparent 70%);
-    filter: blur(80px);
+    top: 10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(230, 0, 0, 0.1) 0%, transparent 70%);
+    /* Switched to Red */
+    filter: blur(100px);
     z-index: 2;
     pointer-events: none;
 }
@@ -253,12 +274,13 @@ header.scrolled {
 .hero::after {
     content: '';
     position: absolute;
-    bottom: 20%;
-    right: 10%;
-    width: 40vw;
-    height: 40vw;
-    background: radial-gradient(circle, rgba(172, 255, 47, 0.08) 0%, transparent 70%);
-    filter: blur(80px);
+    bottom: 5%;
+    right: -5%;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, rgba(230, 0, 0, 0.15) 0%, transparent 70%);
+    /* Mix of brand Red */
+    filter: blur(100px);
     z-index: 2;
     pointer-events: none;
 }
@@ -279,9 +301,9 @@ header.scrolled {
 .hero-model-wrapper {
     position: relative;
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
     /* Scaled up from 600px */
-    margin-top: -2vh;
+    margin-top: -5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -290,11 +312,12 @@ header.scrolled {
 .hero-model-img {
     width: 100%;
     height: auto;
-    max-height: 85vh;
+    max-height: 90vh;
     object-fit: contain;
-    filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 0 80px rgba(0, 0, 0, 1));
     animation: modelFadeIn 1.2s ease-out forwards;
     z-index: 5;
+    position: relative;
 }
 
 @keyframes modelFadeIn {
@@ -334,7 +357,7 @@ header.scrolled {
 
 .stat-badge i {
     font-size: 1.5rem;
-    color: #adff2f;
+    color: var(--primary-red);
     /* Neon highlight */
     margin-bottom: 5px;
 }
@@ -424,11 +447,11 @@ header.scrolled {
 }
 
 .hero-title-grid .highlight {
-    color: #adff2f;
+    color: var(--primary-red);
     /* Neon Fittex Lime */
     font-style: italic;
     /* From screenshot */
-    text-shadow: 0 0 30px rgba(173, 255, 47, 0.4);
+    text-shadow: 0 0 30px rgba(230, 0, 0, 0.4);
 }
 
 .hero-title-grid .outline-text {
@@ -465,14 +488,14 @@ header.scrolled {
 }
 
 .hero-cta-section .btn-fittex-primary {
-    background: #adff2f;
-    color: #000;
+    background: var(--primary-red);
+    color: #fff;
     padding: 22px 50px;
     font-size: 1.1rem;
     font-weight: 800;
     border: none;
     border-radius: 100px;
-    box-shadow: 0 0 50px rgba(173, 255, 47, 0.2);
+    box-shadow: 0 0 50px rgba(230, 0, 0, 0.2);
 }
 
 .hero-cta-section .btn-fittex-secondary {
