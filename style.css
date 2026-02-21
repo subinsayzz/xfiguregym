@@ -439,6 +439,9 @@ header.scrolled {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
+    /* 3D Depth Polish: Darken center where model overlaps */
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 1) 40%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 1) 40%);
 }
 
 .hero-title-grid .row {
