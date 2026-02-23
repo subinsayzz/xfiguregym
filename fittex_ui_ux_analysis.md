@@ -31,7 +31,7 @@ This document provides a comprehensive analysis of the UI/UX features, structuri
 
 ### A. Home Page Structure
 1. **Hero Section:** High-impact typography stating "SCULPT YOUR BODY..." overlaid on a high-resolution, thematic fitness background (image or video). Floating widget cards ("Hours 2.5", "Poses 20") add a modern, data-centric tech feel.
-2. **Trust/Social Proof Bar:** A horizontal stripe showcasing "10,000+ Active Members" along with icons (e.g., "Balanced Body", "Fitness Advice").
+2. **Trust/Social Proof Bar:** A horizontal stripe showcasing "1000+ Active Members" along with icons (e.g., "Balanced Body", "Fitness Advice").
 3. **About the Gym:** An introductory section using tilted or offset image grids with a bold heading supported by a "Qualified Teams" label.
 4. **Experience & Statistics:** A promotional block highlighting "13+ Years of Experience." Features a video play button overlay and animated counters for statistics (e.g., 85% Happy Customers).
 5. **Services/Facilities Grid:** Interactive component cards (01 Modern Equipment, 02 Skilled Trainers) that offer quick insights into gym benefits.
