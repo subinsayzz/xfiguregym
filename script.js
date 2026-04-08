@@ -83,6 +83,153 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.animate-on-scroll');
     animateElements.forEach(el => observer.observe(el));
 
+    // --- About Section Video Popup ---
+    const aboutVideoTrigger = document.getElementById('aboutVideoTrigger');
+    const aboutVideoModal = document.getElementById('aboutVideoModal');
+    const aboutVideoFrame = document.getElementById('aboutVideoFrame');
+    const aboutVideoClose = document.getElementById('aboutVideoClose');
+    const aboutVideoEmbedUrl = 'https://www.youtube.com/embed/WjaVm0h-Afg?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+
+    const openAboutVideo = () => {
+        if (!aboutVideoModal || !aboutVideoFrame) return;
+        aboutVideoModal.classList.add('is-open');
+        aboutVideoModal.setAttribute('aria-hidden', 'false');
+        aboutVideoFrame.src = aboutVideoEmbedUrl;
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeAboutVideo = () => {
+        if (!aboutVideoModal || !aboutVideoFrame) return;
+        aboutVideoModal.classList.remove('is-open');
+        aboutVideoModal.setAttribute('aria-hidden', 'true');
+        aboutVideoFrame.src = '';
+        document.body.style.overflow = '';
+    };
+
+    if (aboutVideoTrigger) {
+        aboutVideoTrigger.addEventListener('click', openAboutVideo);
+        aboutVideoTrigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openAboutVideo();
+            }
+        });
+    }
+
+    if (aboutVideoClose) {
+        aboutVideoClose.addEventListener('click', closeAboutVideo);
+    }
+
+    if (aboutVideoModal) {
+        aboutVideoModal.addEventListener('click', (e) => {
+            if (e.target === aboutVideoModal || e.target.closest('[data-close="true"]')) {
+                closeAboutVideo();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && aboutVideoModal && aboutVideoModal.classList.contains('is-open')) {
+            closeAboutVideo();
+        }
+    });
+
+    // --- Premium Location Gallery Popup ---
+    const openPremiumGalleryBtn = document.getElementById('openPremiumGallery');
+    const premiumGalleryModal = document.getElementById('premiumGalleryModal');
+    const closePremiumGalleryBtn = document.getElementById('closePremiumGallery');
+    const premiumGalleryImage = document.getElementById('premiumGalleryImage');
+    const premiumGalleryCounter = document.getElementById('premiumGalleryCounter');
+    const premiumGalleryPrev = document.getElementById('premiumGalleryPrev');
+    const premiumGalleryNext = document.getElementById('premiumGalleryNext');
+    const premiumGalleryImages = [
+        'assets/premium-gallery-original/01.jpg?v=1',
+        'assets/premium-gallery-original/02.jpg?v=1',
+        'assets/premium-gallery-original/03.jpg?v=1',
+        'assets/premium-gallery-original/04.jpg?v=1',
+        'assets/premium-gallery-original/05.jpg?v=1',
+        'assets/premium-gallery-original/06.jpg?v=1',
+        'assets/premium-gallery-original/07.jpg?v=1',
+        'assets/premium-gallery-original/08.jpg?v=1',
+        'assets/premium-gallery-original/09.jpg?v=1',
+        'assets/premium-gallery-original/10.jpg?v=1',
+        'assets/premium-gallery-original/11.jpg?v=1'
+    ];
+    let premiumGalleryIndex = 0;
+
+    const renderPremiumGallery = () => {
+        if (!premiumGalleryImage || !premiumGalleryCounter) return;
+        premiumGalleryImage.src = premiumGalleryImages[premiumGalleryIndex];
+        premiumGalleryImage.alt = `Zak's Gym Master Premium Gallery Image ${premiumGalleryIndex + 1}`;
+        premiumGalleryCounter.textContent = `${premiumGalleryIndex + 1} / ${premiumGalleryImages.length}`;
+    };
+
+    const openPremiumGallery = () => {
+        if (!premiumGalleryModal) return;
+        renderPremiumGallery();
+        premiumGalleryModal.classList.add('is-open');
+        premiumGalleryModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closePremiumGallery = () => {
+        if (!premiumGalleryModal) return;
+        premiumGalleryModal.classList.remove('is-open');
+        premiumGalleryModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    if (openPremiumGalleryBtn) {
+        openPremiumGalleryBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openPremiumGallery();
+        });
+    }
+
+    if (premiumGalleryPrev) {
+        premiumGalleryPrev.addEventListener('click', () => {
+            premiumGalleryIndex = (premiumGalleryIndex - 1 + premiumGalleryImages.length) % premiumGalleryImages.length;
+            renderPremiumGallery();
+        });
+    }
+
+    if (premiumGalleryNext) {
+        premiumGalleryNext.addEventListener('click', () => {
+            premiumGalleryIndex = (premiumGalleryIndex + 1) % premiumGalleryImages.length;
+            renderPremiumGallery();
+        });
+    }
+
+    if (closePremiumGalleryBtn) {
+        closePremiumGalleryBtn.addEventListener('click', closePremiumGallery);
+    }
+
+    if (premiumGalleryModal) {
+        premiumGalleryModal.addEventListener('click', (e) => {
+            if (e.target === premiumGalleryModal || e.target.closest('[data-close-gallery="true"]')) {
+                closePremiumGallery();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && premiumGalleryModal && premiumGalleryModal.classList.contains('is-open')) {
+            closePremiumGallery();
+            return;
+        }
+
+        if (premiumGalleryModal && premiumGalleryModal.classList.contains('is-open')) {
+            if (e.key === 'ArrowLeft') {
+                premiumGalleryIndex = (premiumGalleryIndex - 1 + premiumGalleryImages.length) % premiumGalleryImages.length;
+                renderPremiumGallery();
+            }
+            if (e.key === 'ArrowRight') {
+                premiumGalleryIndex = (premiumGalleryIndex + 1) % premiumGalleryImages.length;
+                renderPremiumGallery();
+            }
+        }
+    });
+
 
     // --- Form Submission Prevention ---
     const leadForm = document.getElementById('leadForm');

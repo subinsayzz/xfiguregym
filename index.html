@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
@@ -63,71 +63,31 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg-watermark">EXERCISE FITNESS</div>
-
-        <div class="hero-model-container">
-            <div class="hero-model-wrapper">
-                <img src="assets/heromen.png" alt="Elite Trainer" class="hero-model-img">
-
-                <!-- Orbiting Badges -->
-                <div class="stat-badge badge-hours">
-                    <i class="fas fa-clock"></i>
-                    <span class="badge-val">24/7</span>
-                    <span class="badge-label">Hours</span>
-                </div>
-                <div class="stat-badge badge-kcal">
-                    <i class="fas fa-fire"></i>
-                    <span class="badge-val">580</span>
-                    <span class="badge-label">Kcal</span>
-                </div>
-                <div class="stat-badge badge-poses">
-                    <i class="fas fa-magic"></i>
-                    <span class="badge-val">20</span>
-                    <span class="badge-label">Poses</span>
-                </div>
-                <div class="stat-badge badge-sets">
-                    <i class="fas fa-dumbbell"></i>
-                    <span class="badge-val">12</span>
-                    <span class="badge-label">Sets</span>
-                </div>
-            </div>
-
-            <!-- Precision Fittex Headline Lockup -->
-            <div class="hero-headline-overlay animate-on-scroll">
-                <div class="hero-title-grid">
-                    <div class="row">
-                        <span>CHALAKUDY'S</span>
-                    </div>
-                    <div class="row">
-                        <span class="outline-text">MOST</span>
-                        <span class="highlight">PREMIUM</span>
-                        <span>GYM</span>
-                    </div>
-                </div>
-            </div>
+    <section id="home" class="hero hero-video">
+        <div class="hero-video-layer" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; overflow:hidden;">
+            <iframe class="hero-video-iframe"
+                src="https://www.youtube.com/embed/BcBjEK-jxYU?autoplay=1&mute=1&controls=0&loop=1&playlist=BcBjEK-jxYU&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+                title="Zak's Gym Master Hero Video" frameborder="0"
+                style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:100vw; height:56.25vw; min-width:177.78svh; min-height:100svh; max-width:none; max-height:none; border:0; pointer-events:none;"
+                allow="autoplay; encrypted-media; picture-in-picture"></iframe>
         </div>
+        <div class="hero-video-overlay" aria-hidden="true"></div>
 
-        <!-- Absolute Bottom Content -->
-        <div class="hero-bottom-content">
-            <div class="hero-member-proof animate-on-scroll">
-                <div class="avatar-group">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Member">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Member">
-                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Member">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Member">
-                </div>
-                <div class="avatar-text">
-                    <strong style="color: var(--primary-red); font-size: 1.2rem;">1000+</strong>
-                    <div
-                        style="color: #fff; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">
-                        Active members</div>
-                </div>
+        <div class="hero-content-shell animate-on-scroll">
+            <p class="hero-kicker">Chalakudy's Most Premium Gym</p>
+            <h1 class="hero-main-title">Train Hard. Recover Smart. Repeat Daily.</h1>
+            <p class="hero-subtitle">World-class equipment, expert coaching, and a serious training atmosphere built for
+                real results.</p>
+
+            <div class="hero-stat-strip">
+                <span><i class="fas fa-clock"></i> 24/7 Access</span>
+                <span><i class="fas fa-users"></i> 1000+ Active Members</span>
+                <span><i class="fas fa-dumbbell"></i> Elite Training Zones</span>
             </div>
 
-            <div class="hero-cta-section animate-on-scroll" style="transition-delay: 0.2s;">
+            <div class="hero-cta-section hero-cta-inline">
                 <a href="#contact" class="btn-fittex-primary">BOOK A TOUR <i class="fas fa-arrow-right"></i></a>
-                <a href="#training" class="btn-fittex-secondary">SCHEDULE TIME <i class="far fa-calendar-alt"></i></a>
+                <a href="#training" class="btn-fittex-secondary">EXPLORE PROGRAMS <i class="far fa-calendar-alt"></i></a>
             </div>
         </div>
     </section>
@@ -151,10 +111,11 @@
             <div class="about-images animate-on-scroll" style="position: relative;">
                 <div class="main-img" style="border-radius: 20px; overflow: hidden; position: relative;">
                     <!-- Custom AI Generated Gym Interior Image -->
-                    <img src="assets/gym_interior_red_machines_1771619361464.png" alt="Gym Workout"
-                        style="width: 100%; height: 500px; object-fit: cover; display: block;">
+                    <img src="assets/about_collage_main.jpg" alt="Zak's Gym Master Reception"
+                        style="width: 100%; height: 500px; object-fit: cover; object-position: center 58%; display: block;">
 
-                    <div class="play-btn-overlay"
+                    <div id="aboutVideoTrigger" class="play-btn-overlay" role="button" tabindex="0"
+                        aria-label="Play gym intro video"
                         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90px; height: 90px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s ease;"
                         onmouseover="this.style.transform='translate(-50%, -50%) scale(1.1)'"
                         onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'">
@@ -163,20 +124,19 @@
                 </div>
 
                 <!-- Top Right Floating Image -->
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=400"
-                    alt="Group Training"
-                    style="position: absolute; top: -30px; right: -40px; width: 220px; height: 180px; object-fit: cover; border-radius: 20px; border: 8px solid #f8f9fa; transform: rotate(8deg); box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
+                <img src="assets/about_collage_top.jpg" alt="Zak's Gym Master Main Floor"
+                    style="position: absolute; top: -26px; left: -26px; width: 250px; height: 170px; object-fit: cover; object-position: center center; border-radius: 20px; border: 8px solid #f8f9fa; transform: rotate(-6deg); box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
 
                 <!-- Bottom Right Floating Image -->
-                <img src="assets/indian_lady_training_gym_1771619327419.png" alt="Personal Training"
-                    style="position: absolute; bottom: -20px; right: -20px; width: 200px; height: 200px; object-fit: cover; border-radius: 20px; border: 8px solid #f8f9fa; transform: rotate(-5deg); box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
+                <img src="assets/about_collage_bottom.jpg" alt="Zak's Gym Master Cardio Zone"
+                    style="position: absolute; bottom: -28px; right: -24px; width: 240px; height: 165px; object-fit: cover; object-position: center center; border-radius: 20px; border: 8px solid #f8f9fa; transform: rotate(6deg); box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2;">
 
                 <!-- Floating Experience Box -->
                 <div class="experience-box"
                     style="position: absolute; bottom: 20px; left: -30px; background: linear-gradient(135deg, #222, #000); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--primary-red); padding: 25px 30px; border-radius: 12px; display: flex; align-items: center; gap: 20px; z-index: 3; box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
                     <div
                         style="font-family: var(--font-display); font-size: 4rem; color: #fff; line-height: 0.8; letter-spacing: -2px;">
-                        500<span style="font-size: 2.5rem; color: var(--text-gray);">+</span></div>
+                        5000<span style="font-size: 2.5rem; color: var(--text-gray);">+</span></div>
                     <div
                         style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; line-height: 1.1; letter-spacing: 1px; text-transform: uppercase;">
                         LIVES<br><span style="color:var(--text-gray);">TRANSFORMED</span></div>
@@ -661,6 +621,54 @@
                     border-color: #fff;
                 }
 
+                .fittex-gallery-trigger {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 165px;
+                    margin-bottom: 14px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background-size: cover;
+                    background-position: center;
+                    text-decoration: none;
+                }
+
+                .fittex-gallery-trigger::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 70%);
+                }
+
+                .fittex-gallery-trigger .label {
+                    position: absolute;
+                    left: 16px;
+                    right: 16px;
+                    bottom: 14px;
+                    z-index: 2;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #fff;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .fittex-gallery-trigger .label i {
+                    color: var(--primary-red);
+                    font-size: 1.1rem;
+                }
+
+                .fittex-gallery-trigger:hover {
+                    border-color: rgba(230, 0, 0, 0.65);
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+                }
+
                 .fittex-loc-card.metallic-premium {
                     background: linear-gradient(145deg, #1c1c1c 0%, #0d0d0d 50%, #050505 100%);
                     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -752,6 +760,14 @@
                             <div>Perfect for couples, parents & senior pros</div>
                         </li>
                     </ul>
+
+                    <a href="#" id="openPremiumGallery" class="fittex-gallery-trigger"
+                        style="background-image: url('assets/premium-gallery-original/11.jpg?v=1');">
+                        <span class="label">
+                            <span>Checkout The Space</span>
+                            <i class="fas fa-images"></i>
+                        </span>
+                    </a>
 
                     <a href="#contact" class="fittex-btn primary">
                         Book Consultation <i class="fas fa-calendar-check"></i>
@@ -2219,8 +2235,55 @@
         </div>
     </footer>
 
+    <!-- Premium Gallery Modal -->
+    <div id="premiumGalleryModal" class="premium-gallery-modal" aria-hidden="true">
+        <div class="premium-gallery-modal__backdrop" data-close-gallery="true"></div>
+        <div class="premium-gallery-modal__dialog" role="dialog" aria-modal="true"
+            aria-label="Zak's Gym Master Premium Gallery">
+            <button type="button" id="closePremiumGallery" class="premium-gallery-modal__close"
+                aria-label="Close gallery">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="premium-gallery-modal__head">
+                <h3>Zak's Gym Master Premium</h3>
+                <p>Flagship Space Gallery</p>
+            </div>
+            <div class="premium-gallery-carousel">
+                <button type="button" id="premiumGalleryPrev" class="premium-gallery-carousel__arrow"
+                    aria-label="Previous image">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="premium-gallery-carousel__frame">
+                    <img id="premiumGalleryImage" src="assets/premium-gallery-original/01.jpg?v=1"
+                        alt="Zak's Gym Master Premium Gallery Image" loading="lazy">
+                </div>
+                <button type="button" id="premiumGalleryNext" class="premium-gallery-carousel__arrow"
+                    aria-label="Next image">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="premium-gallery-carousel__meta">
+                <span id="premiumGalleryCounter">1 / 11</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Video Modal -->
+    <div id="aboutVideoModal" class="video-modal" aria-hidden="true">
+        <div class="video-modal__backdrop" data-close="true"></div>
+        <div class="video-modal__dialog video-modal__dialog--shorts" role="dialog" aria-modal="true" aria-label="Zak's Gym Master video popup">
+            <button type="button" id="aboutVideoClose" class="video-modal__close" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-modal__frame-wrap">
+                <iframe id="aboutVideoFrame" src="" title="Zak's Gym Master Shorts Video" frameborder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js?v=17"></script>
 
     <!-- Form Submit Handler + WhatsApp Redirect -->
     <script>
