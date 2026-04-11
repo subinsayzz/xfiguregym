@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
@@ -435,12 +435,14 @@
                         grid-template-columns: 1fr;
                     }
 
-                    .fittex-gallery-trigger {
+                    .fittex-gallery-trigger,
+                    .fittex-tour-trigger {
                         top: 16px;
                         right: 16px;
                     }
 
-                    .fittex-gallery-trigger .label {
+                    .fittex-gallery-trigger .label,
+                    .fittex-tour-trigger .label {
                         display: none;
                     }
                 }
@@ -647,6 +649,63 @@
                     font-size: 1rem;
                 }
 
+                .fittex-tour-trigger {
+                    position: absolute;
+                    top: 22px;
+                    right: 22px;
+                    z-index: 20;
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 50%;
+                    background: rgba(10, 10, 10, 0.9);
+                    border: 1px solid rgba(255, 255, 255, 0.22);
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    animation: galleryBlink 1.8s infinite;
+                    box-shadow: 0 0 0 rgba(230, 0, 0, 0);
+                }
+
+                .fittex-tour-trigger span {
+                    color: var(--primary-red);
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    line-height: 1;
+                    letter-spacing: 0.4px;
+                }
+
+                .fittex-tour-trigger .label {
+                    position: absolute;
+                    right: 52px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    white-space: nowrap;
+                    color: #fff;
+                    font-weight: 700;
+                    font-size: 0.72rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    background: rgba(8, 8, 8, 0.95);
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                    padding: 7px 10px;
+                    border-radius: 999px;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: all 0.25s ease;
+                }
+
+                .fittex-tour-trigger:hover .label {
+                    opacity: 1;
+                    transform: translateY(-50%) translateX(-2px);
+                }
+
+                .fittex-tour-trigger:hover {
+                    border-color: rgba(230, 0, 0, 0.65);
+                    transform: scale(1.05);
+                    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+                }
+
                 .fittex-gallery-trigger .label {
                     position: absolute;
                     right: 52px;
@@ -741,6 +800,13 @@
                             <div>Unisex, family-friendly with intense Personal Training focus</div>
                         </li>
                     </ul>
+
+                    <a href="#" id="openOriginalTour" class="fittex-tour-trigger" aria-label="Open 360 virtual tour">
+                        <span>360°</span>
+                        <span class="label">
+                            <span>Virtual Tour</span>
+                        </span>
+                    </a>
 
                     <a href="https://maps.google.com" target="_blank" class="fittex-btn secondary">
                         Get Directions <i class="fas fa-arrow-right"></i>
@@ -2297,6 +2363,28 @@
         </div>
     </div>
 
+    <!-- Original Location 360 Virtual Tour Modal -->
+    <div id="originalTourModal" class="premium-gallery-modal" aria-hidden="true">
+        <div class="premium-gallery-modal__backdrop" data-close-tour="true"></div>
+        <div class="premium-gallery-modal__dialog premium-gallery-modal__dialog--tour" role="dialog" aria-modal="true"
+            aria-label="Zak's Gym Master 360 Virtual Tour">
+            <button type="button" id="closeOriginalTour" class="premium-gallery-modal__close"
+                aria-label="Close virtual tour">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="premium-gallery-modal__head">
+                <h3>Zak's Gym Master</h3>
+                <p>360 Virtual Tour</p>
+            </div>
+            <div class="virtual-tour-wrap">
+                <iframe id="tour-embeded" name="Zak's Gym Master" src="https://tour.panoee.net/iframe/gymmaster"
+                    frameBorder="0" width="100%" height="400px" scrolling="no" allowvr="yes"
+                    allow="vr; xr; accelerometer; gyroscope; autoplay;" allowFullScreen="false"
+                    webkitallowfullscreen="false" mozallowfullscreen="false" loading="eager"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- About Video Modal -->
     <div id="aboutVideoModal" class="video-modal" aria-hidden="true">
         <div class="video-modal__backdrop" data-close="true"></div>
@@ -2312,7 +2400,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js?v=17"></script>
+    <script src="script.js?v=18"></script>
 
     <!-- Form Submit Handler + WhatsApp Redirect -->
     <script>

@@ -230,6 +230,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Original Location 360 Virtual Tour Popup ---
+    const openOriginalTourBtn = document.getElementById('openOriginalTour');
+    const originalTourModal = document.getElementById('originalTourModal');
+    const closeOriginalTourBtn = document.getElementById('closeOriginalTour');
+    const pano_iframe_name = 'tour-embeded';
+
+    const openOriginalTour = () => {
+        if (!originalTourModal) return;
+        originalTourModal.classList.add('is-open');
+        originalTourModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeOriginalTour = () => {
+        if (!originalTourModal) return;
+        originalTourModal.classList.remove('is-open');
+        originalTourModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    if (openOriginalTourBtn) {
+        openOriginalTourBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openOriginalTour();
+        });
+    }
+
+    if (closeOriginalTourBtn) {
+        closeOriginalTourBtn.addEventListener('click', closeOriginalTour);
+    }
+
+    if (originalTourModal) {
+        originalTourModal.addEventListener('click', (e) => {
+            if (e.target === originalTourModal || e.target.closest('[data-close-tour="true"]')) {
+                closeOriginalTour();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && originalTourModal && originalTourModal.classList.contains('is-open')) {
+            closeOriginalTour();
+        }
+    });
+
+    window.addEventListener('devicemotion', function (e) {
+        var iframe = document.getElementById(pano_iframe_name);
+        if (!iframe || !iframe.contentWindow) return;
+
+        iframe.contentWindow.postMessage({
+            type: 'devicemotion',
+            deviceMotionEvent: {
+                acceleration: {
+                    x: e.acceleration ? e.acceleration.x : null,
+                    y: e.acceleration ? e.acceleration.y : null,
+                    z: e.acceleration ? e.acceleration.z : null
+                },
+                accelerationIncludingGravity: {
+                    x: e.accelerationIncludingGravity ? e.accelerationIncludingGravity.x : null,
+                    y: e.accelerationIncludingGravity ? e.accelerationIncludingGravity.y : null,
+                    z: e.accelerationIncludingGravity ? e.accelerationIncludingGravity.z : null
+                },
+                rotationRate: {
+                    alpha: e.rotationRate ? e.rotationRate.alpha : null,
+                    beta: e.rotationRate ? e.rotationRate.beta : null,
+                    gamma: e.rotationRate ? e.rotationRate.gamma : null
+                },
+                interval: e.interval,
+                timeStamp: e.timeStamp
+            }
+        }, '*');
+    });
+
 
     // --- Form Submission Prevention ---
     const leadForm = document.getElementById('leadForm');
