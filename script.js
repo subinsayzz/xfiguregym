@@ -2,63 +2,107 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Sticky Header Transformation ---
     const header = document.getElementById('header');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    let ticking = false;
 
     // --- Mobile Menu Toggle ---
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
 
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        
-        // Toggle Icon state
-        const icon = menuBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Toggle Icon state
+            const icon = menuBtn.querySelector('i');
+            if (!icon) return;
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
 
     // Close menu when a link is clicked
     const links = document.querySelectorAll('.nav-links a');
     links.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 768 && navLinks && menuBtn) {
                 navLinks.classList.remove('active');
-                menuBtn.querySelector('i').classList.remove('fa-times');
-                menuBtn.querySelector('i').classList.add('fa-bars');
+                const icon = menuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
         });
     });
 
-    // --- Active Link Switching on Scroll ---
+    // --- Active Link Switching on Scroll (rAF optimized) ---
     const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
+    let sectionOffsets = [];
+    let activeLink = null;
 
-        links.forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('href') === `#${current}`) {
-                a.classList.add('active');
+    const recalcSectionOffsets = () => {
+        sectionOffsets = Array.from(sections)
+            .filter((section) => section.id)
+            .map((section) => ({
+                id: section.id,
+                top: section.offsetTop
+            }));
+    };
+
+    const setActiveNav = (sectionId) => {
+        if (!sectionId) return;
+        const nextActive = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+        if (nextActive === activeLink) return;
+
+        if (activeLink) {
+            activeLink.classList.remove('active');
+        }
+        if (nextActive) {
+            nextActive.classList.add('active');
+            activeLink = nextActive;
+        }
+    };
+
+    const onScrollUpdate = () => {
+        ticking = false;
+
+        const y = window.scrollY || window.pageYOffset;
+        if (header) {
+            header.classList.toggle('scrolled', y > 50);
+        }
+
+        let currentId = '';
+        for (let i = 0; i < sectionOffsets.length; i += 1) {
+            if (y >= (sectionOffsets[i].top - 200)) {
+                currentId = sectionOffsets[i].id;
+            } else {
+                break;
             }
-        });
+        }
+        setActiveNav(currentId);
+    };
+
+    const requestScrollUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(onScrollUpdate);
+    };
+
+    recalcSectionOffsets();
+    onScrollUpdate();
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+    window.addEventListener('resize', () => {
+        recalcSectionOffsets();
+        requestScrollUpdate();
+    });
+    window.addEventListener('orientationchange', () => {
+        recalcSectionOffsets();
+        requestScrollUpdate();
     });
 
     // --- Smooth Scroll Animation (Intersection Observer) ---
@@ -71,11 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                // Optional: Stop observing once visible if you only want it to animate once
-                // observer.unobserve(entry.target); 
-            } else {
-                // Remove the class when not intersecting if you want it to trigger every scroll
-                // entry.target.classList.remove('is-visible');
+                // One-time reveal to cut observer work while scrolling.
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
