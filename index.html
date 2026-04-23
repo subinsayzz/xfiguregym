@@ -3,231 +3,323 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>White Tigers | Premium Fitness Club</title>
-  <meta name="description" content="White Tigers is a premium two-floor gym in North Paravur with expert trainers, performance equipment, and personalized transformation plans.">
+  <title>Maxwell Wellness Klub | Premium Family Gym</title>
+  <meta name="description" content="Maxwell Wellness Klub offers top-quality equipment, a clean, hygienic workout environment, friendly professional staff, and reasonable prices. Your ideal family gym.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="site-header" id="header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="White Tigers home">
-        <img src="assets/white-tigers-logo.png" alt="White Tigers logo">
+<body class="dark-theme">
+  <!-- Dynamic Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Header -->
+  <header class="glass-header" id="header">
+    <div class="header-container">
+      <a href="#home" class="logo-wrapper">
+        <img src="assets/media__1776983601506.png" alt="Maxwell Wellness Klub Logo" class="brand-logo">
       </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+      </button>
 
-      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-
-      <nav class="nav" id="navLinks" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#facilities">Facilities</a>
-        <a href="#trainers">Trainers</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#location">Location</a>
-        <a href="#contact">Contact</a>
+      <nav class="main-nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#testimonials" class="nav-link">Why Us</a>
+        <a href="#join" class="btn-primary join-btn">Join The Klub</a>
       </nav>
-
-      <a href="#contact" class="cta-top">Book Free Trial</a>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero-video" aria-hidden="true">
-        <iframe
-          src="https://www.youtube.com/embed/cVe5a2JWhVY?autoplay=1&mute=1&controls=0&loop=1&playlist=cVe5a2JWhVY&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
-          title="White Tigers training video"
-          loading="lazy"
-          allow="autoplay; encrypted-media; picture-in-picture"
-        ></iframe>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="video-background">
+        <iframe 
+          src="https://www.youtube.com/embed/OmzlKv_nVCo?autoplay=1&mute=1&controls=0&loop=1&playlist=OmzlKv_nVCo&playsinline=1&rel=0&modestbranding=1" 
+          frameborder="0" 
+          allow="autoplay; encrypted-media; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-
-      <div class="container hero-shell">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">White Tigers Premium Fitness Club</p>
-          <h1>Train Hard. Transform Right.</h1>
-          <p>
-            Welcome to WHITE TIGERS, where your body meets the lifestyle it truly deserves. Train in a hygienic,
-            high-energy atmosphere across 2 floors and 7,500 sq.ft. of premium fitness space.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-solid" href="#contact" data-magnetic>Book Free Trial</a>
-            <a class="btn btn-outline" href="#facilities" data-magnetic>Explore Facilities</a>
-          </div>
-
-          <div class="hero-stat-row">
-            <article>
-              <h3>7,500</h3>
-              <p>Sq.ft. Fitness Space</p>
-            </article>
-            <article>
-              <h3>2</h3>
-              <p>Dedicated Floors</p>
-            </article>
-            <article>
-              <h3>6 Days</h3>
-              <p>Training Week</p>
-            </article>
-          </div>
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-content">
+        <span class="hero-badge reveal-up">A Premium Family Gym</span>
+        <h1 class="reveal-up delay-1">Maxwell<br><span class="accent-text">Wellness Klub</span></h1>
+        <p class="hero-desc reveal-up delay-2">Experience top-quality equipment in a clean, hygienic environment. Join the family today.</p>
+        <div class="hero-actions reveal-up delay-3">
+          <a href="#join" class="btn-primary glow-effect">Start Your Journey</a>
+          <a href="#experience" class="btn-secondary">Discover More</a>
         </div>
+      </div>
+      
+      <div class="scroll-indicator">
+        <span class="mouse">
+          <span class="wheel"></span>
+        </span>
       </div>
     </section>
 
-    <section class="section gallery-section" id="facilities">
+    <!-- Experience / Features Section -->
+    <section id="experience" class="features-section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">World-Class Facilities</p>
-          <h2>Train In Every Zone</h2>
+        <div class="section-title reveal-up">
+          <h2>The Maxwell <span class="accent-text">Standard</span></h2>
+          <p>We pride ourselves on offering a top-tier fitness experience with a focus on family and community.</p>
         </div>
 
-        <div class="preview-layout">
-          <div class="hero-showcase reveal lift-card" data-rotate>
-            <img src="assets/gallery-1.jpg" alt="White Tigers gym showcase" class="active">
-            <img src="assets/gallery-3.jpg" alt="White Tigers strength floor">
-            <img src="assets/gallery-6.jpg" alt="White Tigers training area">
-            <div class="hero-showcase-label">7500 SQ.FT | 2 FLOORS | HIGH PERFORMANCE</div>
+        <div class="features-grid">
+          <div class="feature-card reveal-up delay-1 hover-tilt">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <h3>Top-Quality Equipment</h3>
+            <p>State-of-the-art machines and free weights designed for optimal biomechanics and results.</p>
+          </div>
+          
+          <div class="feature-card reveal-up delay-2 hover-tilt">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <h3>Pristine Hygiene</h3>
+            <p>A spotlessly clean and hygienic workout environment maintained around the clock.</p>
           </div>
 
-          <div class="preview-side">
-            <article class="facility-card reveal lift-card" style="--card-img:url('assets/gallery-2.jpg')">
-              <div>
-                <h3>Strength Zone</h3>
-                <p>Free weights and machine systems for powerful progression.</p>
-              </div>
-            </article>
-            <article class="facility-card reveal lift-card" style="--card-img:url('assets/gallery-4.jpg')">
-              <div>
-                <h3>Cardio Zone</h3>
-                <p>Endurance-focused area for fat loss and conditioning.</p>
-              </div>
-            </article>
-            <article class="facility-card reveal lift-card" style="--card-img:url('assets/gallery-5.jpg')">
-              <div>
-                <h3>Functional Zone</h3>
-                <p>Mobility, core, and athletic movement training space.</p>
-              </div>
-            </article>
+          <div class="feature-card reveal-up delay-3 hover-tilt">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Expert Staff</h3>
+            <p>Friendly, professional trainers dedicated to guiding and motivating you every step of the way.</p>
+          </div>
+
+          <div class="feature-card reveal-up delay-4 hover-tilt">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+            </div>
+            <h3>Reasonable Prices</h3>
+            <p>Premium fitness shouldn't break the bank. Enjoy high-end facilities at accessible rates.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="trainers">
+    <!-- Dynamic Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="gallery-container">
+        <div class="gallery-text reveal-up">
+          <h2>Inside The <span class="accent-text">Klub</span></h2>
+          <p>Explore our expansive floors, specialized zones, and high-energy atmosphere.</p>
+        </div>
+        
+        <div class="bento-gallery">
+          <div class="bento-item item-1 reveal-up delay-1">
+            <div class="img-wrapper">
+              <img src="assets/media__1776983005559.jpg" alt="Maxwell Wellness Klub Equipment" loading="lazy">
+              <div class="item-overlay"><span>Strength Zone</span></div>
+            </div>
+          </div>
+          <div class="bento-item item-2 reveal-up delay-2">
+            <div class="img-wrapper">
+              <img src="assets/media__1776983005585.jpg" alt="Maxwell Wellness Klub Atmosphere" loading="lazy">
+              <div class="item-overlay"><span>Cardio Deck</span></div>
+            </div>
+          </div>
+          <div class="bento-item item-3 reveal-up delay-3">
+            <div class="img-wrapper">
+              <img src="assets/media__1776983005593.jpg" alt="Maxwell Wellness Klub Space" loading="lazy">
+              <div class="item-overlay"><span>Functional Area</span></div>
+            </div>
+          </div>
+          <div class="bento-item item-4 reveal-up delay-4">
+            <div class="img-wrapper">
+              <img src="assets/media__1776983005687.jpg" alt="Maxwell Wellness Klub Design" loading="lazy">
+              <div class="item-overlay"><span>Reception</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Expert Guidance</p>
-          <h2>Trainer-Led Coaching</h2>
+        <div class="section-title reveal-up">
+          <h2>Our <span class="accent-text">Programs</span></h2>
+          <p>Whatever your goal, we have the space, equipment, and classes to help you achieve it.</p>
         </div>
-
-        <div class="trainers-grid">
-          <article class="trainer-card reveal lift-card">
-            <img src="assets/gallery-6.jpg" alt="Strength training coach zone">
-            <div>
-              <h3>Strength Coaching</h3>
-              <p>Form-first progressive plans to build muscle safely and consistently.</p>
-            </div>
-          </article>
-          <article class="trainer-card reveal lift-card">
-            <img src="assets/gallery-3.jpg" alt="Fat loss and cardio coach zone">
-            <div>
-              <h3>Fat Loss Coaching</h3>
-              <p>Cardio plus resistance structures with real nutrition accountability.</p>
-            </div>
-          </article>
-          <article class="trainer-card reveal lift-card">
-            <img src="assets/gallery-4.jpg" alt="Functional and rehab coach zone">
-            <div>
-              <h3>Functional & Rehab</h3>
-              <p>Movement correction support for injury rehab and long-term performance.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark reviews" id="reviews">
-      <div class="container reviews-wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">Google Reviews</p>
-          <h2>What Our Members Say</h2>
-        </div>
-
-        <aside class="rating-box reveal lift-card">
-          <h3>4.8</h3>
-          <p>Google Rating</p>
-          <span>★★★★★</span>
-        </aside>
-
-        <div class="review-grid">
-          <article class="review-card reveal lift-card">
-            <p class="stars">★★★★★</p>
-            <p>Very clean and spacious gym with excellent machines. Trainers are supportive and motivating every day.</p>
-            <h4>Google Member</h4>
-          </article>
-          <article class="review-card reveal lift-card">
-            <p class="stars">★★★★★</p>
-            <p>Great atmosphere, premium setup, and proper guidance. One of the best fitness experiences in North Paravur.</p>
-            <h4>Google Member</h4>
-          </article>
-          <article class="review-card reveal lift-card">
-            <p class="stars">★★★★★</p>
-            <p>Loved the strength zone and discipline in training. Highly recommended for fat loss and transformation goals.</p>
-            <h4>Google Member</h4>
-          </article>
-        </div>
-
-        <a class="reviews-link" href="https://share.google/8SHKkAXfnor7ndcIw" target="_blank" rel="noopener noreferrer">
-          View all reviews on Google
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="location">
-      <div class="container location-grid">
-        <div class="map-frame reveal lift-card">
-          <iframe
-            title="White Tigers map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=White%20Tiger%20Gym%2C%20Airport%20road%2C%20mavinchuvadu%2C%20mannam%2C%20North%20Paravur%2C%20Kochi%2C%20Kerala%20683520&z=16&output=embed"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div class="location-panel reveal">
-          <p class="eyebrow">Find Us</p>
-          <h2>Visit White Tigers</h2>
-          <p class="address">White Tiger Gym, Airport road, mavinchuvadu, mannam, North Paravur, Kochi, Kerala 683520</p>
-          <div class="contact-list">
-            <p><strong>Call:</strong> <a href="tel:+919072949100">907 2949 100</a></p>
-            <p><strong>Call:</strong> <a href="tel:+919072959100">907 2959 100</a></p>
-            <p><strong>Hours:</strong> Monday - Saturday: 5:00 AM - 11:00 PM</p>
-            <p><strong>Hours:</strong> Sunday: 6:00 AM - 9:00 PM</p>
+        <div class="programs-grid">
+          <div class="program-card reveal-up delay-1 hover-tilt">
+            <h3>Strength & Conditioning</h3>
+            <p>Build muscle, increase power, and get stronger with our dedicated free weights and machines.</p>
+            <ul>
+              <li>Powerlifting Racks</li>
+              <li>Olympic Platforms</li>
+              <li>Plate-loaded Machines</li>
+            </ul>
+          </div>
+          <div class="program-card reveal-up delay-2 hover-tilt">
+            <h3>Cardio & Endurance</h3>
+            <p>Improve your cardiovascular health and burn calories with our top-tier cardio deck.</p>
+            <ul>
+              <li>Treadmills & Ellipticals</li>
+              <li>Stair Climbers</li>
+              <li>Rowing Machines</li>
+            </ul>
+          </div>
+          <div class="program-card reveal-up delay-3 hover-tilt">
+            <h3>Functional Training</h3>
+            <p>Enhance mobility and core strength in our specialized athletic movement zone.</p>
+            <ul>
+              <li>Kettlebells & TRX</li>
+              <li>Battle Ropes</li>
+              <li>Plyometric Boxes</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-band" id="contact">
-      <div class="container cta-band-wrap reveal">
-        <p>Stop waiting for the perfect time. Your first training session is completely free.</p>
-        <div>
-          <a class="btn btn-light" href="tel:+919072949100" data-magnetic>Book Your Free Trial</a>
-          <a class="btn btn-light-outline" href="https://wa.me/919072949100" target="_blank" rel="noopener noreferrer" data-magnetic>Chat On WhatsApp</a>
+    <!-- Team / Trainers Section -->
+    <section id="team" class="team-section">
+      <div class="container">
+        <div class="section-title reveal-up">
+          <h2>Meet The <span class="accent-text">Experts</span></h2>
+          <p>Our friendly and professional staff are here to support your fitness journey.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal-up delay-1">
+            <img src="assets/media__1776983005585.jpg" alt="Coach" class="team-img" loading="lazy">
+            <div class="team-info">
+              <h3>Alex Mercer</h3>
+              <p>Head Coach</p>
+            </div>
+          </div>
+          <div class="team-card reveal-up delay-2">
+            <img src="assets/media__1776983005593.jpg" alt="Coach" class="team-img" loading="lazy">
+            <div class="team-info">
+              <h3>Sarah Jenkins</h3>
+              <p>Strength Specialist</p>
+            </div>
+          </div>
+          <div class="team-card reveal-up delay-3">
+            <img src="assets/media__1776983005687.jpg" alt="Coach" class="team-img" loading="lazy">
+            <div class="team-info">
+              <h3>Marcus Chen</h3>
+              <p>Functional Trainer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+      <div class="container">
+        <div class="section-title reveal-up">
+          <h2>Reasonable <span class="accent-text">Prices</span></h2>
+          <p>Premium fitness shouldn't break the bank. Choose the plan that works for you.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card reveal-up delay-1 hover-tilt">
+            <h3>Day Pass</h3>
+            <div class="price">₹500<span>/day</span></div>
+            <p>Perfect for visitors and trials.</p>
+            <ul class="price-features">
+              <li>Full Gym Access</li>
+              <li>Locker Facilities</li>
+              <li>Group Classes (If Available)</li>
+            </ul>
+            <a href="#join" class="btn-outline">Select Pass</a>
+          </div>
+          <div class="price-card popular reveal-up delay-2">
+            <div class="popular-badge">Most Popular</div>
+            <h3>Monthly Plan</h3>
+            <div class="price">₹2,500<span>/mo</span></div>
+            <p>The standard membership for dedicated individuals.</p>
+            <ul class="price-features">
+              <li>24/7 Access</li>
+              <li>Free Fitness Assessment</li>
+              <li>Nutrition Guidelines</li>
+              <li>Guest Pass (1/mo)</li>
+            </ul>
+            <a href="#join" class="btn-primary">Join Now</a>
+          </div>
+          <div class="price-card reveal-up delay-3 hover-tilt">
+            <h3>Family Plan</h3>
+            <div class="price">₹6,000<span>/mo</span></div>
+            <p>Train together, stay together. (Up to 3 members)</p>
+            <ul class="price-features">
+              <li>All Monthly Features</li>
+              <li>Shared Family Account</li>
+              <li>Group Training Sessions</li>
+            </ul>
+            <a href="#join" class="btn-outline">Select Plan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Social Proof -->
+    <section id="testimonials" class="reviews-section">
+      <div class="container">
+        <div class="review-box reveal-up">
+          <div class="quote-icon">"</div>
+          <h3 class="highlight-quote">
+            "People say this gym offers top-quality equipment and a clean, hygienic workout environment. They also highlight the friendly and professional staff, and the reasonable prices. It's a true family gym."
+          </h3>
+          <div class="reviewer-info">
+            <div class="stars">★★★★★</div>
+            <p class="reviewer-name">Community Feedback</p>
+            <p class="reviewer-title">Local Members</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="join" class="cta-section">
+      <div class="cta-bg-glow"></div>
+      <div class="container cta-container reveal-up">
+        <h2>Ready to transform with your <span class="accent-text">Family?</span></h2>
+        <p>Join Maxwell Wellness Klub today and experience fitness redefined.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary large-btn glow-effect">Get Membership Options</a>
+          <a href="#" class="btn-outline large-btn">Contact Us</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
-      <img src="assets/white-tigers-logo.png" alt="White Tigers logo">
-      <div>
-        <p>White Tigers Fitness Club</p>
-        <small>Strength. Health. Wealth.</small>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="assets/media__1776983601506.png" alt="Maxwell Wellness Klub Logo" class="footer-logo">
+        <p>Maxwell Wellness Klub — Elevating fitness, together.</p>
       </div>
+      <div class="footer-links">
+        <div class="link-col">
+          <h4>Navigation</h4>
+          <a href="#home">Home</a>
+          <a href="#experience">Experience</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+        <div class="link-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Maxwell Wellness Klub. All rights reserved.</p>
     </div>
   </footer>
 
