@@ -119,4 +119,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     }
+  
+    // Pricing Toggle Logic
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.price-card');
+        
+        // Remove active class from all buttons in this card
+        card.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Hide all pricing content in this card
+        card.querySelectorAll('.pricing-content').forEach(c => c.classList.remove('active'));
+        
+        // Show the targeted pricing content
+        const targetId = e.target.getAttribute('data-target');
+        card.querySelector(`#${targetId}`).classList.add('active');
+      });
+    });
   });
