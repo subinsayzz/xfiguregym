@@ -29,6 +29,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -176,6 +177,12 @@ h3 { font-size: 1.75rem; margin-bottom: 1rem; }
   background: rgba(3, 3, 5, 0.9);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border-color: rgba(255,255,255,0.1);
+}
+
+.glass-header.menu-open {
+  border-radius: 20px 20px 0 0;
+  background: rgba(10, 10, 15, 0.95);
+  border-bottom: none;
 }
 
 .header-container {
@@ -778,6 +785,7 @@ h3 { font-size: 1.75rem; margin-bottom: 1rem; }
   }
   .location-grid { grid-template-columns: 1fr; }
   .features-split { grid-template-columns: 1fr; }
+  .main-nav { gap: 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -786,9 +794,26 @@ h3 { font-size: 1.75rem; margin-bottom: 1rem; }
   .glass-header { width: 95%; padding: 0.5rem 1rem; }
   .logo-wrapper { height: 60px; }
   
+  .main-nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: -1px; /* Align with border */
+    width: calc(100% + 2px);
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    padding: 1.5rem 0 2.5rem 0;
+    z-index: 99;
+  }
+  
   /* Hero Mobile Fixes */
   .hero-content {
-    padding-top: 80px; /* Buffer to prevent header collision */
+    padding-top: 120px; /* Buffer to prevent header collision */
   }
   .hero-content h1 {
     font-size: 3rem; /* Prevent huge text from wrapping into 4 lines */

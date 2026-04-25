@@ -38,14 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (menuBtn && mainNav) {
     menuBtn.addEventListener('click', () => {
-      mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
-      mainNav.style.flexDirection = 'column';
-      mainNav.style.position = 'absolute';
-      mainNav.style.top = '100%';
-      mainNav.style.left = '0';
-      mainNav.style.width = '100%';
-      mainNav.style.background = 'rgba(3, 3, 5, 0.95)';
-      mainNav.style.padding = '2rem 0';
+      mainNav.classList.toggle('mobile-open');
+      header.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking a link
+    const navLinks = mainNav.querySelectorAll('.nav-link, .btn-primary');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('mobile-open');
+        header.classList.remove('menu-open');
+      });
     });
   }
 
